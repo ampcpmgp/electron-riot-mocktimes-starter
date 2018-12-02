@@ -4,7 +4,7 @@ const path = require('path')
 let mainWindow
 
 function createWindow () {
-  mainWindow = new BrowserWindow({ x: 10, y: 100, width: 1000, height: 800 })
+  mainWindow = new BrowserWindow({ x: 10, y: 100, width: 1000, height: 940 })
 
   mainWindow.loadFile(path.join(__dirname, '/index.html'))
 
