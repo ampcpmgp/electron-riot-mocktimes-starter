@@ -11,6 +11,7 @@
     "lint": "standard --verbose | snazzy",
     "precommit": "lint-staged",
     "start": "run-p mocktimes",
+    "electron": "electron ./entry/index.js",
     "mocktimes": "am-mocktimes watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

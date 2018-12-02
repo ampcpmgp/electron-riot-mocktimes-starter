@@ -1,14 +1,15 @@
 const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
 let mainWindow
 
 function createWindow () {
-  mainWindow = new BrowserWindow({ width: 800, height: 600 })
+  mainWindow = new BrowserWindow({ x: 10, y: 100, width: 1000, height: 800 })
 
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile(path.join(__dirname, '/index.html'))
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
     mainWindow = null
