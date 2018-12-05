@@ -1,6 +1,6 @@
 {
-  "name": "parcel-riot-mocktimes-starter",
-  "version": "2.0.2",
+  "name": "electron-riot-mocktimes-starter",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -49,6 +49,7 @@
   },
   "standard": {
     "globals": [
+      "APP",
       "opts"
     ]
   },

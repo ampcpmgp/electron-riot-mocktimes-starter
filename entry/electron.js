@@ -7,6 +7,8 @@ process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 let mainWindow
 
 function createWindow () {
+  if (mainWindow) return
+
   mainWindow = new BrowserWindow({
     x: 10,
     y: 100,
@@ -25,10 +27,6 @@ function createWindow () {
 
   mainWindow.loadURL(url)
 
-  mainWindow.on('closed', function () {
-    mainWindow = null
-  })
-
   mainWindow.on('app-command', function (e, cmd) {
     if (cmd === 'browser-backward' && mainWindow.webContents.canGoBack()) {
       mainWindow.webContents.goToIndex(0)
@@ -37,18 +35,17 @@ function createWindow () {
       mainWindow.webContents.goForward()
     }
   })
+
+  mainWindow.on('closed', function () {
+    mainWindow = null
+  })
 }
 
 app.on('ready', createWindow)
+app.on('activate', createWindow)
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit()
-  }
-})
-
-app.on('activate', function () {
-  if (mainWindow === null) {
-    createWindow()
   }
 })
