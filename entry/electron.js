@@ -1,22 +1,29 @@
-const { app, BrowserWindow } = require('electron')
+const electron = require('electron')
+
+const { app, BrowserWindow } = electron
+
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 
 let mainWindow
 
 function createWindow () {
-  mainWindow = new BrowserWindow({ x: 10, y: 100, width: 1000, height: 920 })
+  mainWindow = new BrowserWindow({
+    x: 10,
+    y: 100,
+    width: 1000,
+    height: 920,
+    'node-integration': false
+  })
 
   const url = (function () {
     if (process.env.NODE_ENV === 'develop') {
-      return `http://${require('ip').address()}:1234`
+      return `http://${require('ip').address()}:1234/pattern.html`
     } else {
       return 'index.html'
     }
   })()
 
   mainWindow.loadURL(url)
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
     mainWindow = null
