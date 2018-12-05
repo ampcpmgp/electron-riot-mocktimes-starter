@@ -24,7 +24,7 @@ function createWindow () {
 
   mainWindow.on('app-command', function (e, cmd) {
     if (cmd === 'browser-backward' && mainWindow.webContents.canGoBack()) {
-      mainWindow.webContents.goBack()
+      mainWindow.webContents.goToIndex(0)
     }
     if (cmd === 'browser-forward' && mainWindow.webContents.canGoForward()) {
       mainWindow.webContents.goForward()
