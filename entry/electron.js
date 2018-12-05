@@ -25,6 +25,10 @@ function createWindow () {
     }
   })()
 
+  if (process.env.NODE_ENV === 'develop') {
+    process.chdir('./entry')
+  }
+
   mainWindow.loadURL(url)
 
   mainWindow.on('app-command', function (e, cmd) {
