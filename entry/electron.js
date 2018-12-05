@@ -1,3 +1,4 @@
+const path = require('path')
 const electron = require('electron')
 
 const { app, BrowserWindow } = electron
@@ -21,12 +22,14 @@ function createWindow () {
     if (process.env.NODE_ENV === 'develop') {
       return `http://${require('ip').address()}:1234/pattern.html`
     } else {
-      return 'dist/index.html'
+      return path.join(__dirname, 'dist/index.html')
     }
   })()
 
   if (process.env.NODE_ENV === 'develop') {
     process.chdir('./entry')
+  } else {
+    process.chdir(__dirname)
   }
 
   mainWindow.loadURL(url)
