@@ -21,7 +21,7 @@ function createWindow () {
     if (process.env.NODE_ENV === 'develop') {
       return `http://${require('ip').address()}:1234/pattern.html`
     } else {
-      return 'index.html'
+      return 'dist/index.html'
     }
   })()
 

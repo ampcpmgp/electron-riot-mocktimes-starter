@@ -3,4 +3,3 @@ node_modules/
 
 .am-mocktimes/
 entry/dist/
-mock/dist/
