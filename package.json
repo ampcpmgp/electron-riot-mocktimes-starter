@@ -1,6 +1,6 @@
 {
-  "name": "parcel-riot-mocktimes-starter",
-  "version": "2.0.2",
+  "name": "electron-riot-mocktimes-starter",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,13 +8,11 @@
     "dist": "run-s dist:*",
     "dist:clean": "rimraf dist",
     "dist:build": "parcel build src/index.html --public-url=./",
-    "dist-dev": "run-s dist-dev:*",
-    "dist-dev:clean": "rimraf dist-no-minified",
-    "dist-dev:build": "parcel build src/index.html --out-dir=dist-no-minified --no-minify --public-url=./",
     "lint": "standard --verbose | snazzy",
     "precommit": "lint-staged",
-    "start": "am-mocktimes watch",
-    "screenshot": "am-mocktimes screenshot",
+    "start": "cross-env NODE_ENV=develop run-p mocktimes electron",
+    "electron": "electron ./entry/electron.js",
+    "mocktimes": "am-mocktimes watch --no-open --target electron",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -29,7 +27,10 @@
     "am-mocktimes": "^1.4.0",
     "axios-mock-adapter": "^1.15.0",
     "babel-loader": "^8.0.4",
+    "cross-env": "^5.2.0",
+    "electron": "^3.0.10",
     "husky": "^0.14.3",
+    "ip": "^1.1.5",
     "less": "^3.0.4",
     "lint-staged": "^7.1.2",
     "npm-run-all": "^4.1.3",
@@ -43,6 +44,7 @@
   },
   "standard": {
     "globals": [
+      "APP",
       "opts"
     ]
   },
