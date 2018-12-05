@@ -12,8 +12,7 @@
     "precommit": "lint-staged",
     "start": "cross-env NODE_ENV=develop run-p mocktimes electron",
     "electron": "electron ./entry/electron.js",
-    "mocktimes": "run-p mocktimes:*",
-    "mocktimes:pattern": "am-mocktimes watch --no-open --target electron",
+    "mocktimes": "am-mocktimes watch --no-open --target electron",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

@@ -13,7 +13,7 @@ mock({
   uiAction,
 
   page (name) {
-    console.log(name)
+    window.history.replaceState(null, null, name)
   }
 })
 
