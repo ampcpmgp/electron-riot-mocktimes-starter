@@ -1,4 +1,6 @@
-.am-mocktimes/
-.cache/
-dist/
 node_modules/
+.cache/
+
+.am-mocktimes/
+entry/dist/
+mock/dist/

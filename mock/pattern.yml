@@ -1,3 +1,4 @@
+url: http://localhost:2121/mock/index.html
 default page:
   func: [page, ./default]
   addCount - 3:
