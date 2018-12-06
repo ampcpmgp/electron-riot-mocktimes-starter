@@ -7,7 +7,8 @@
   <body>
     <app-root></app-root>
     <script>
-      require(process.cwd() + "/entry/client.js")
+      const path = require('path')
+      require(path.join(process.cwd(), 'client.js'))
     </script>
     <script src="app.js"></script>
   </body>

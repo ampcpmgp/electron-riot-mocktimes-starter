@@ -1,5 +1,5 @@
 default page:
-  func: [page, ./default]
+  func: [page, default]
   addCount - 3:
     - [uiAction.addCount]
     - [uiAction.addCount]
