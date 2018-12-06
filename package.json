@@ -14,7 +14,7 @@
     "start": "cross-env NODE_ENV=develop run-p mocktimes electron",
     "electron": "electron ./entry/electron.js",
     "mocktimes": "am-mocktimes watch --no-open --target electron",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./src",
     "build-storybook": "build-storybook"
   },
   "author": "",

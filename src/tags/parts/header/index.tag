@@ -1,9 +1,9 @@
 <parts-header>
-  <span onclick="{addCount}">menu</span>
-  <span>{clickCount} / {clickHistory.length}</span>
-  <span if="{opts.testData}">
-    {typeof opts.testData} -> {opts.testData}
+  <span onclick="{opts.handleMenuClick}">menu</span>
+  <span>
+    {opts.clickCount} / typeof -> {typeof opts.clickCount}
   </span>
+
   <style type="less">
     :scope {
       display: flex;
@@ -13,8 +13,4 @@
       background-color: #555;
     }
   </style>
-  <script>
-    import Mixin from './mixin.js'
-    this.mixin(Mixin)
-  </script>
 </parts-header>
