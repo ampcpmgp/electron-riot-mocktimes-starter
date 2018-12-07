@@ -47,8 +47,7 @@
   },
   "standard": {
     "globals": [
-      "APP",
-      "opts"
+      "APP"
     ]
   },
   "lint-staged": {
