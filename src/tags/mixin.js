@@ -1,5 +1,5 @@
 import { observe } from 'dob'
-import ui, * as uiAction from '../state/ui'
+import ui, * as uiAction from '../states/ui'
 
 export default {
   // static

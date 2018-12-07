@@ -1,7 +1,7 @@
 import mock from 'am-mocktimes'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import * as uiAction from '../src/state/ui'
+import * as uiAction from '../src/states/ui'
 import Path from '../src/const/path'
 
 const mockAdapter = new MockAdapter(axios, { delayResponse: 500 })

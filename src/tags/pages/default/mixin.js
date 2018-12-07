@@ -1,6 +1,6 @@
 import { observe } from 'dob'
 import axios from 'axios'
-import ui from '../../../state/ui'
+import ui from '../../../states/ui'
 import Path from '../../../const/path'
 
 export default {
