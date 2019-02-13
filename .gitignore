@@ -3,4 +3,4 @@ node_modules/
 
 .am-mocktimes/
 entry/dist/
-electron-tool-*/
+electron-tool/

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dist": "run-s dist:*",
-    "dist:clean": "rimraf entry/dist electron-tool-*",
+    "dist:clean": "rimraf entry/dist electron-tool",
     "dist:build": "parcel build src/index.html --public-url ./ --out-dir entry/dist",
     "dist:package": "electron-packager entry electron-tool",
     "lint": "standard --verbose | snazzy",
