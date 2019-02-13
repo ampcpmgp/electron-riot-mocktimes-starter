@@ -14,6 +14,10 @@ edit `README.md`
 
 ```shell
 yarn
+cd ./entry
+yarn
+
+cd ../
 npm start
 ```
 
