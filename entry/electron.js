@@ -5,7 +5,7 @@ const { app, BrowserWindow } = electron
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 
-function createWindow () {
+async function createWindow () {
   let mainWindow = new BrowserWindow({
     x: 10,
     y: 100,
@@ -15,7 +15,12 @@ function createWindow () {
   })
 
   if (process.env.NODE_ENV === 'develop') {
+    const waitOn = require('wait-on')
     const url = `http://${require('ip').address()}:1234/pattern.html`
+
+    await waitOn({
+      resources: [url]
+    })
 
     process.chdir('./entry')
     mainWindow.loadURL(url)
