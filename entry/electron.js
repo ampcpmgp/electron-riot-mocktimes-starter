@@ -5,7 +5,7 @@ const { app, BrowserWindow } = electron
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 
-function createWindow () {
+async function createWindow () {
   let mainWindow = new BrowserWindow({
     x: 10,
     y: 100,
@@ -13,6 +13,14 @@ function createWindow () {
     height: 920,
     'node-integration': false
   })
+
+  mainWindow.on('app-command', function (e, cmd) {
+    console.log(3, cmd) // v4 not fired, v3 fired.
+  })
+
+  console.log(1)
+  await (ms => new Promise(resolve => setTimeout(resolve, ms)))(10000)
+  console.log(2)
 
   if (process.env.NODE_ENV === 'develop') {
     const url = `http://${require('ip').address()}:1234/pattern.html`
@@ -28,8 +36,9 @@ function createWindow () {
     mainWindow.loadURL(url)
   }
 
-  // 下記イベントが electron@4系で動かないため、3系にしている。対応され次第、versionを上げる。
   mainWindow.on('app-command', function (e, cmd) {
+    console.log(cmd)
+
     if (cmd === 'browser-backward' && mainWindow.webContents.canGoBack()) {
       mainWindow.webContents.goBack()
     }
