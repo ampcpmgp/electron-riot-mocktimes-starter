@@ -34,6 +34,7 @@ function createWindow () {
 
   mainWindow.loadURL(url)
 
+  // 下記イベントが electron@4系で動かないため、3系にしている。対応され次第、versionを上げる。
   mainWindow.on('app-command', function (e, cmd) {
     if (cmd === 'browser-backward' && mainWindow.webContents.canGoBack()) {
       mainWindow.webContents.goBack()
