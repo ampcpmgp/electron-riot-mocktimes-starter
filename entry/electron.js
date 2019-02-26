@@ -10,8 +10,7 @@ async function createWindow () {
     x: 10,
     y: 100,
     width: 1000,
-    height: 920,
-    'node-integration': false
+    height: 920
   })
 
   if (process.env.NODE_ENV === 'develop') {
