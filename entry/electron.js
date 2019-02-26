@@ -18,21 +18,19 @@ function createWindow () {
     'node-integration': false
   })
 
-  const url = (function () {
-    if (process.env.NODE_ENV === 'develop') {
-      return `http://${require('ip').address()}:1234/pattern.html`
-    } else {
-      return path.join(__dirname, 'dist/index.html')
-    }
-  })()
-
   if (process.env.NODE_ENV === 'develop') {
+    const url = `http://${require('ip').address()}:1234/pattern.html`
+
     process.chdir('./entry')
-  } else {
-    process.chdir(__dirname)
+    mainWindow.loadURL(url)
   }
 
-  mainWindow.loadURL(url)
+  if (process.env.NODE_ENV !== 'develop') {
+    const url = path.join(__dirname, 'dist/index.html')
+
+    process.chdir(__dirname)
+    mainWindow.loadURL(url)
+  }
 
   // 下記イベントが electron@4系で動かないため、3系にしている。対応され次第、versionを上げる。
   mainWindow.on('app-command', function (e, cmd) {
