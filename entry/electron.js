@@ -5,12 +5,8 @@ const { app, BrowserWindow } = electron
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 
-let mainWindow
-
 function createWindow () {
-  if (mainWindow) return
-
-  mainWindow = new BrowserWindow({
+  let mainWindow = new BrowserWindow({
     x: 10,
     y: 100,
     width: 1000,
@@ -48,7 +44,6 @@ function createWindow () {
 }
 
 app.on('ready', createWindow)
-app.on('activate', createWindow)
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
